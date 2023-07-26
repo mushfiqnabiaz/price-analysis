@@ -22,8 +22,6 @@ def create_countplot(data, x):
     
 # Streamlit app
 def main():
-    st.title('Commodity Count Analysis')
-    
     # Display the countplot
     st.subheader('Count of Each Commodity')
     create_countplot(df, 'Commodity')    
