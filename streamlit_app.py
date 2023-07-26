@@ -13,6 +13,10 @@ def load_data():
 
 df = load_data()
 
+# Convert the "Average Price" column to numeric, ignoring non-convertible values
+df['Average Price'] = pd.to_numeric(df['Average Price'].str.replace(',', ''), errors='coerce')
+
+
 # Set Seaborn theme
 sns.set_theme(color_codes=True)
 
