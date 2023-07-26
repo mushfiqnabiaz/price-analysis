@@ -3,6 +3,8 @@ import pandas as pd
 import seaborn as sns
 import matplotlib.pyplot as plt
 
+st.set_option('deprecation.showPyplotGlobalUse', False)
+
 st.title("Bangladesh Product Price Analysis")
 
 
@@ -21,10 +23,6 @@ def create_countplot(data, x):
 # Streamlit app
 def main():
     st.title('Commodity Count Analysis')
-    
-    # Display a sample of the DataFrame (optional)
-    st.subheader('Sample Data')
-    st.dataframe(df.head())
     
     # Display the countplot
     st.subheader('Count of Each Commodity')
