@@ -4,9 +4,15 @@ import seaborn as sns
 import matplotlib.pyplot as plt
 
 # Load the data
-
-df = pd.read_csv('/data/price-list-2015-2023.csv')
 @st.cache
+def load_data():
+    df = pd.read_csv('/data/price-list-2015-2023.csv')  # Update the CSV path here
+    return df
+
+df = load_data()
+
+# Set Seaborn theme
+sns.set_theme(color_codes=True)
 
 # Sidebar to filter data if required
 st.sidebar.header('Data Filters')
