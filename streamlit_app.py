@@ -5,7 +5,7 @@ import matplotlib.pyplot as plt
 
 st.set_option('deprecation.showPyplotGlobalUse', False)
 
-st.title("Bangladesh Product Price Analysis")
+st.title("Bangladesh Product Price Analysis 2023")
 
 
 df = pd.read_csv('data/price-list-2015-2023.csv')
