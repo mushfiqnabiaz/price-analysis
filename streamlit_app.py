@@ -4,12 +4,10 @@ import seaborn as sns
 import matplotlib.pyplot as plt
 
 # Load the data
-@st.cache
-def load_data():
-    df = pd.read_csv('/data/price-list-2015-2023.csv')
-    return df
 
-df = load_data()
+df = pd.read_csv('/data/price-list-2015-2023.csv')
+@st.cache
+
 
 # Set Seaborn theme
 sns.set_theme(color_codes=True)
