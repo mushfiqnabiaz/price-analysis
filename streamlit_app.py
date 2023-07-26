@@ -3,11 +3,15 @@ import pandas as pd
 import numpy as np
 st.title("Bangladesh Product Price Analysis")
 
-#datafreame
-st.write("This is Dataframe Demo")
-df = pd.DataFrame(
-    np.random.randn(50,20),
-    columns=('col %d' % i for i in range (20))
-)
+def main():
+    st.title("Read CSV File in Streamlit")
 
-st.dataframe(df)
+    # Load the CSV file from the "data" directory
+    file_path = "data/price-list-2015-2023.csv"
+    df = pd.read_csv(file_path)
+
+    # Display the DataFrame
+    st.dataframe(df)
+
+if __name__ == "__main__":
+    main()
