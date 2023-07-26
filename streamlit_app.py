@@ -8,10 +8,6 @@ import matplotlib.pyplot as plt
 df = pd.read_csv('/data/price-list-2015-2023.csv')
 @st.cache
 
-
-# Set Seaborn theme
-sns.set_theme(color_codes=True)
-
 # Sidebar to filter data if required
 st.sidebar.header('Data Filters')
 selected_price_type = st.sidebar.selectbox('Select Price Type', df['Price Type'].unique())
