@@ -6,7 +6,7 @@ import matplotlib.pyplot as plt
 # Load the data
 @st.cache
 def load_data():
-    df = pd.read_csv('/content/drive/MyDrive/Dataset/Price/price-list-2015-2023.csv')
+    df = pd.read_csv('/data/price-list-2015-2023.csv')
     return df
 
 df = load_data()
