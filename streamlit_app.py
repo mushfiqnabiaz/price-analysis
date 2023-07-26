@@ -89,3 +89,32 @@ plt.figure(figsize=(10, 8))
 sns.heatmap(correlation_matrix, annot=True, cmap='coolwarm', square=True)
 plt.title('Correlation Matrix')
 st.pyplot()
+
+# Calculate percentage change in prices year-on-year
+st.header('Percentage Change in Prices Year-on-Year')
+retail_data = df[df['Price Type'] == 'Retail']
+retail_data['Average Price'] = pd.to_numeric(retail_data['Average Price'].str.replace(',', ''), errors='coerce')
+retail_price_percentage_change = retail_data.groupby('Year')['Average Price'].pct_change() * 100
+
+wholesale_data = df[df['Price Type'] == 'Wholesale']
+wholesale_data['Average Price'] = pd.to_numeric(wholesale_data['Average Price'].str.replace(',', ''), errors='coerce')
+wholesale_price_percentage_change = wholesale_data.groupby('Year')['Average Price'].pct_change() * 100
+
+# Create plots for percentage change in retail and wholesale prices
+plt.figure(figsize=(10, 6))
+plt.plot(retail_data['Year'], retail_price_percentage_change, marker='o', linestyle='-', label='Retail')
+plt.plot(wholesale_data['Year'], wholesale_price_percentage_change, marker='o', linestyle='-', label='Wholesale')
+plt.xlabel('Year')
+plt.ylabel('Percentage Change')
+plt.title('Percentage Change in Prices Year-on-Year')
+plt.legend(loc='center left', bbox_to_anchor=(1, 0.5))
+plt.grid(True)
+st.pyplot()
+
+# Show the raw data table
+st.header('Raw Data Table')
+st.write(df)
+
+# Show the filtered data table
+st.header('Filtered Data Table')
+st.write(filtered_data)
