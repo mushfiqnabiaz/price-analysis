@@ -2,11 +2,13 @@ import streamlit as st
 import pandas as pd
 import seaborn as sns
 import matplotlib.pyplot as plt
+import os
 
 # Load the data
 @st.cache
 def load_data():
-    df = pd.read_csv('/data/price-list-2015-2023.csv')  # Update the CSV path here
+    data_path = os.path.join("data", "price-list-2015-2023.csv")  # Update the CSV path here
+    df = pd.read_csv(data_path)
     return df
 
 df = load_data()
